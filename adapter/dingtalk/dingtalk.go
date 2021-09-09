@@ -45,7 +45,7 @@ func newDingTalk(bot *rboot.Robot) rboot.Adapter {
 	// 并创建自定义机器人，设置 DING_ROBOT_HOOK_ACCESS_TOKEN
 	// 和 DING_ROBOT_HOOK_SECRET，所有消息都由自定义机器人回复,
 	// 当不需要时注释掉这一行
-	go ding.listenOutgoing()
+	//go ding.listenOutgoing()
 
 	return ding
 }
