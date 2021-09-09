@@ -1,4 +1,4 @@
-module github.com/ghaoo/rboot
+module github.com/ri0day/rboot
 
 go 1.16
 
