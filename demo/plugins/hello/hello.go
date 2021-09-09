@@ -1,6 +1,6 @@
 package hello
 
-import "github.com/ghaoo/rboot"
+import "github.com/ri0day/rboot"
 
 func init() {
 	// 注册脚本

@@ -1,7 +1,7 @@
 package ping
 
 import (
-	"github.com/ghaoo/rboot"
+	"github.com/ri0day/rboot"
 	"math/rand"
 	"time"
 )

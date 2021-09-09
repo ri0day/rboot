@@ -1,7 +1,7 @@
 package dingtalk
 
 import (
-	"github.com/ghaoo/rboot"
+	"github.com/ri0day/rboot"
 	"os"
 )
 

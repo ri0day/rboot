@@ -3,7 +3,7 @@ package dingtalk
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/ghaoo/rboot"
+	"github.com/ri0day/rboot"
 	"log"
 	"net/http"
 	"net/url"

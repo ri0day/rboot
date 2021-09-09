@@ -1,7 +1,7 @@
 package vote
 
 import (
-	"github.com/ghaoo/rboot"
+	"github.com/ri0day/rboot"
 )
 
 var vote = new(Vote)

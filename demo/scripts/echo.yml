@@ -1,0 +1,13 @@
+name: hi
+version: 0.1.0
+ruleset:
+    hi: "^!hi"
+usage:
+    hi: echo hello world and 你好
+description: 脚本插件示例
+command:
+    -
+        dir: scripts
+        cmd:
+            - ./hello.py
+

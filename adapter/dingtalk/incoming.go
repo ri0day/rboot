@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ghaoo/rboot"
+	"github.com/ri0day/rboot"
 )
 
 func signature(ts int64, secret string) string {

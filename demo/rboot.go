@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/ghaoo/rboot"
-	_ "github.com/ghaoo/rboot/adapter"
-	"github.com/ghaoo/rboot/brain/leveldb"
-	_ "github.com/ghaoo/rboot/robot/plugins"
+	"github.com/ri0day/rboot"
+	_ "github.com/ri0day/rboot/adapter"
+	"github.com/ri0day/rboot/brain/leveldb"
+	_ "github.com/ri0day/rboot/demo/plugins"
 	"github.com/sirupsen/logrus"
 )
 

@@ -2,7 +2,7 @@ package vote
 
 import (
 	"fmt"
-	"github.com/ghaoo/rboot"
+	"github.com/ri0day/rboot"
 	"strings"
 	"time"
 )

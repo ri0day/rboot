@@ -1,7 +1,5 @@
 package adapter
 
 import (
-	_ "github.com/ghaoo/rboot/adapter/bearychat"
-	_ "github.com/ghaoo/rboot/adapter/dingtalk"
-	_ "github.com/ghaoo/rboot/adapter/wework"
+	_ "github.com/ri0day/rboot/adapter/dingtalk"
 )
