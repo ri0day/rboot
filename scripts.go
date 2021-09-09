@@ -34,15 +34,12 @@ type command struct {
 func setupScript(bot *Robot, in *Message) (msg []*Message) {
 	rule := in.Header.Get("rule")
 	extargs := string(in.Header.Get("args")[1:])
-
+        fmt.Errorf("GOT ARGS %s",extargs)
 	scp := scripts[rule]
 
 	for _, sc := range scp.Command {
 		for _, c := range sc.Cmd {
 			args := strings.Split(c, " ")
-			if len(extargs) >0 {
-		        out, err := runCommand(sc.Dir,args[0],extargs...)	
-			}
 			out, err := runCommand(sc.Dir, args[0], args[1:]...)
 			if err != nil {
 				return NewMessages(err.Error())
