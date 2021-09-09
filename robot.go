@@ -196,12 +196,9 @@ func process(bot *Robot) {
 	})
 }
 
-// Go 皮皮虾，我们走~~~~~~~~~
 func (bot *Robot) Go() {
 
 	fmt.Println("Rboot Version ", version)
-
-	fmt.Println("皮皮虾，我们走~~~~~~~")
 
 	// 开启web服务
 	go bot.Router.run()
@@ -227,12 +224,9 @@ func (bot *Robot) Go() {
 	bot.Stop()
 }
 
-// Stop 皮皮虾，快停下~~~~~~~~~
 func (bot *Robot) Stop() {
 
 	runtime.SetFinalizer(bot, nil)
-
-	fmt.Println("皮皮虾，快停下~~~~~~~~")
 
 	os.Exit(0)
 }
