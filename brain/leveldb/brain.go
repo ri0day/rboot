@@ -4,7 +4,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/ghaoo/rboot"
+	"github.com/ri0day/rboot"
 	"github.com/sirupsen/logrus"
 	"github.com/syndtr/goleveldb/leveldb"
 )
