@@ -33,7 +33,7 @@ type command struct {
 // 设置脚本
 func setupScript(bot *Robot, in *Message) (msg []*Message) {
 	rule := in.Header.Get("rule")
-	extargs := in.Header.Get("args")[1]
+	extargs := in.Header.Get("args")[1].string()
 
 	scp := scripts[rule]
 
