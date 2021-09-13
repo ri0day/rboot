@@ -36,9 +36,12 @@ func setupScript(bot *Robot, in *Message) (msg []*Message) {
 	extargs := in.Header["args"]
 	scp := scripts[rule]
         userid := in.Header["Senderstaffid"][0]
-        _,err :=  bot.Brain.Get("session",userid)
+        code,err :=  bot.Brain.Get("session",userid)
         if err != nil {
-          return NewMessages("You session expired, use !auth and !auth <authcode> re-establish session")
+          return NewMessages("Query Session DB Failed")
+        }
+        if string(code) == "" {
+           return NewMessages("You session expired, use !auth and !auth <authcode> re-establish session")
         }
 	for _, sc := range scp.Command {
 		for _, c := range sc.Cmd {
