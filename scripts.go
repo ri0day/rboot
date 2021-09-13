@@ -35,7 +35,7 @@ func setupScript(bot *Robot, in *Message) (msg []*Message) {
 	rule := in.Header.Get("rule")
 	extargs := in.Header["args"]
 	scp := scripts[rule]
-        userid := incoming.Header["Senderstaffid"][0]
+        userid := in.Header["Senderstaffid"][0]
         _,err :=  bot.Brain.Get("session",userid)
         if err != nil {
           return NewMessages("You session expired, use !auth and !auth <authcode> re-establish session")
