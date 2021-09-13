@@ -175,7 +175,7 @@ func init() {
 			return NewMessages("更新成功！", incoming.From)
 		},
 		Ruleset: map[string]string{
-			"refresh": `^!refresh_scripts`,
+			"refresh_scripts": `^!refresh_scripts`,
 		},
 		Usage: map[string]string{
 			"!refresh_scripts": "重新加载插件YML配置文件",
