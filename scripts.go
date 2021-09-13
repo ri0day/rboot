@@ -7,7 +7,6 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
-        "sort"
 
 	"github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v2"
@@ -31,13 +30,6 @@ type command struct {
 	Cmd []string `yaml:"cmd"`
 }
 
-func Insert(ss []string, s string) []string {
-    i := sort.SearchStrings(ss, s)
-    ss = append(ss, "")
-    copy(ss[i+1:], ss[i:])
-    ss[i] = s
-    return ss
-}
 
 // 设置脚本
 func setupScript(bot *Robot, in *Message) (msg []*Message) {
@@ -56,7 +48,7 @@ func setupScript(bot *Robot, in *Message) (msg []*Message) {
 		for _, c := range sc.Cmd {
 			args := strings.Split(c, " ")
                         //pass args and dept name from user input to scripts
-                        input := Insert(extargs,string(dept))
+                        input := append(extargs,string(dept))
 			out, err := runCommand(sc.Dir, args[0], input[1:]...)
 			if err != nil {
 				return NewMessages(err.Error())
