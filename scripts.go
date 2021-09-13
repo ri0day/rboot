@@ -7,6 +7,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
+        "sort"
 
 	"github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v2"
@@ -30,24 +31,33 @@ type command struct {
 	Cmd []string `yaml:"cmd"`
 }
 
+func Insert(ss []string, s string) []string {
+    i := sort.SearchStrings(ss, s)
+    ss = append(ss, "")
+    copy(ss[i+1:], ss[i:])
+    ss[i] = s
+    return ss
+}
+
 // 设置脚本
 func setupScript(bot *Robot, in *Message) (msg []*Message) {
 	rule := in.Header.Get("rule")
 	extargs := in.Header["args"]
 	scp := scripts[rule]
         userid := in.Header["Senderstaffid"][0]
-        code,err :=  bot.Brain.Get("session",userid)
+        dept,err :=  bot.Brain.Get("session",userid)
         if err != nil {
           return NewMessages("Query Session DB Failed")
         }
-        if string(code) == "" {
+        if string(dept) == "" {
            return NewMessages("You session expired, use !auth and !auth <authcode> re-establish session")
         }
 	for _, sc := range scp.Command {
 		for _, c := range sc.Cmd {
 			args := strings.Split(c, " ")
-                        //pass args from user input to scripts
-			out, err := runCommand(sc.Dir, args[0], extargs[1:]...)
+                        //pass args and dept name from user input to scripts
+                        input := Insert(extargs,string(dept))
+			out, err := runCommand(sc.Dir, args[0], input[1:]...)
 			if err != nil {
 				return NewMessages(err.Error())
 			}
