@@ -162,7 +162,7 @@ func init() {
 		}).Errorf("register script err: %v", err)
 	}
 
-	RegisterPlugin("refresh_script", Plugin{
+	RegisterPlugin("refresh_scripts", Plugin{
 		Action: func(bot *Robot, incoming *Message) []*Message {
 			err := registerScript()
 			if err != nil {
@@ -175,10 +175,10 @@ func init() {
 			return NewMessages("更新成功！", incoming.From)
 		},
 		Ruleset: map[string]string{
-			"refresh": `^!refresh scripts`,
+			"refresh": `^!refresh_scripts`,
 		},
 		Usage: map[string]string{
-			"!refresh scripts": "重新加载插件YML配置文件",
+			"!refresh_scripts": "重新加载插件YML配置文件",
 		},
 		Description: "当插件配置有变化时更新插件YML配置文件",
 	})
